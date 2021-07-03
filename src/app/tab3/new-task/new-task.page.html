@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>إضافة مهمة جديدة</ion-title>
+  </ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button>خلف</ion-back-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">عنوان المهمة</ion-label>
+    <ion-input [(ngModel)]="newTask.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">وصف المهمة</ion-label>
+    <ion-input [(ngModel)]="newTask.desc"></ion-input>
+  </ion-item>
+  <br />
+  <br />
+  <ion-button color="tertiary" expand="block" (click)="addTask()">إضافة</ion-button>
+</ion-content>

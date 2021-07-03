@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      حاسبة العمر
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="floating">
+      <ion-icon name="person-outline"></ion-icon>
+
+      الاسم
+    </ion-label>
+    <ion-input [(ngModel)]="name" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">
+      <ion-icon name="calendar-outline"></ion-icon>
+      سنة الميلاد
+    </ion-label>
+    <ion-input [(ngModel)]="birthYear" type="number" inputmode="numeric"></ion-input>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>مرحبا...</ion-card-subtitle>
+      <ion-card-title>{{ name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>سنة ميلادك: {{birthYear}}  <span *ngIf="rongDate" >{{rongDate}}</span></p>
+     
+      <h1>عمرك: <span *ngIf="age"> {{age}} </span></h1>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button [disabled]="disabled()" expand="block" (click)="calcAge()">
+    احسب العمر
+  </ion-button>
+  <ion-button *ngIf="age" expand="block" color="danger" (click)="reset()">
+    حذف البيانات
+  </ion-button>
+</ion-content>

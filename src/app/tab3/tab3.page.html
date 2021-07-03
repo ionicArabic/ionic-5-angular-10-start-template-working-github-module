@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      قائمة المھام
+    </ion-title>
+    <ion-buttons>
+      <ion-button slot="end" (click)="addTask()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of taskList">
+      <ion-checkbox [(ngModel)]="item.done"></ion-checkbox>
+      <ion-label>
+        <h2>{{item.title}}</h2>
+        <p>{{item.desc}}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button color="danger" (click)="deleteTask(item)">
+          <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>
